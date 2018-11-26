@@ -34,7 +34,7 @@ function  getAllUser(callback) {
 
 	// this sql command calls all the USER in the table user_tbl where the user_isdel
 	// field is equal (=) to 0
-	var sql =  'SELECT * FROM user_tbl WHERE user_isdel = 0';
+	var sql =  'SELECT * FROM user_tbl';
 
 	//executing sql
 	dbConnection.query(sql, function(err, recordset){
@@ -57,7 +57,7 @@ function  getAllUser(callback) {
 			user_lname: recordset[index].user_lname,
 			user_role: recordset[index].user_role,
 			user_email: recordset[index].user_email,
-
+			user_isdel: recordset[index].user_isdel,
 			};
 
 			//push record in allUserList array

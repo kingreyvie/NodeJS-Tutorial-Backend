@@ -54,7 +54,7 @@ if (body.user_lname) {
 		count--;
 		}
 	}
-	
+
 	if (body.user_email) {
 		sqlQuery += ` user_email = ? `;
 		sqlData.push(body.user_email)
@@ -68,7 +68,7 @@ if (body.user_lname) {
 
 //concat user_isdel if not empty to the sql query
 //is user_isdel is one, delete.
-if (body.user_isdel) {
+if (body.user_isdel < 2) {
 	sqlQuery +=  ` user_isdel = ? `
 	sqlData.push(body.user_isdel)
 
@@ -91,14 +91,14 @@ _dbConnection.query(sqlQuery, sqlData, function (err, result) {
             err.status  =  '500'
             err.message  =  'Internal Server Error'
             res.send(err)
-	} 
-    
+	}
+
     else {
             sqlQuery = 'SELECT * FROM user_tbl WHERE user_id = ' + req.params.userId
-            
+
             _dbConnection.query(sqlQuery, function(err, result){
                 let resp = {status: '200', user: result}
-                res.send(resp)  
+                res.send(resp)
             })
 
 	}
