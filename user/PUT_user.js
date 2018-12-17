@@ -15,6 +15,7 @@ function  updateUser (req, res, _dbConnection, next) {
 	//we need to count the body so we will know if there will be a next field to be added in the query.
 	let count=0;
 	for(let prop in body) {
+		console.log('BOOOOOOOOP')
 		if (body.hasOwnProperty(prop)) {
 			count++;
 		}

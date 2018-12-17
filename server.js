@@ -2,10 +2,11 @@
 const express = require ('express');
 const server = express();
 const bodyParser = require('body-parser');
-//const swaggerUi = require('swagger-ui-express')
-//const swagger = require('./swagger')
-//server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swagger));
+const swaggerUi = require('swagger-ui-express')
+const swagger = require('./swagger')
+
 //fetch the json object to our body request
+server.use('/api-docs', swaggerUi.serve, swaggerUi.setup(swagger));
 server.use(bodyParser.json());
 server.use(bodyParser.urlencoded({extended:true}));
 

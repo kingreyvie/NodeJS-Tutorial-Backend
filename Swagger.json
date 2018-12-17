@@ -1,9 +1,12 @@
+{
 "swagger": "2.0",
+
 "info": {
-    "title": "Sample Swagger",
-    "description": "Documentation and testing of your APIs",
-    "version": "1.0"
-}
+	"title": "Sample Swagger",
+	"description": "Documentation and testing of your APIs",
+	"version": "1.0"	
+},
+
 "paths":{
     "/api/user/{userId}": {
         "get": {
@@ -59,7 +62,7 @@
             "tags": [
                 "User"
             ],
-            "description": "This will all the users in the system.",
+            "description": "This will generate all the users in the system.",
             "responses": {}
         },
         "post": {
@@ -68,7 +71,7 @@
             "tags": [
                 "User"
             ],
-            "description": "This will create a new user in the system. Only the user_fname and user_lname is required in the field.",
+            "description": "This will create a new user in the system. Only the user_fname user_lname, user_role, and user_email is required in the field.",
             "parameters": [
                 {
                     "in": "body",
@@ -83,8 +86,8 @@
             "responses": {}
         }
     }
-}
-"definitions":{
+},
+"definitions": {
     "User": {
         "type": "object",
         "properties": {
@@ -108,4 +111,5 @@
             }
         }
     }
+}
 }
